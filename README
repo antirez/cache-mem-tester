@@ -1,9 +1,33 @@
 This small Ruby program tests the memory efficiency of Redis and Memcached
-usign a given distribution of values sizes, against 400 MB of used memory.
+using a given distribution of values sizes, against 400 MB of used memory.
 
 It was written because of the following thread in the Redis mailing list:
 
 https://groups.google.com/forum/#!topic/redis-db/rmuO_gRWzUs
+
+USAGE
+---
+
+Uncomment test_redis or test_memcache at the end of the memtestr.rb file
+and execute the program.
+
+When testing Redis, just start an instance using port 10000 with:
+
+    ./redis-server --port 10000
+
+When testing Memcached start the server with:
+
+    ./memcached -m 400 -M
+
+The -M switch is used to tell memcached to return errors when the 400 MB
+of memory are full instead of start key eviction, this way the program has
+a simple way to understand the server is full.
+
+To test memcached a second time, you have to restart the server. This is not
+needed for Redis (probably to fix this is trivial, pull requests accepted).
+
+CREDITS / CONTRIBUTING
+---
 
 This software was written by Salvatore Sanfilippo and is released under the
 two clause BSD license. Send pull requests using Github.
