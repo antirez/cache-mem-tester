@@ -1,0 +1,9 @@
+This small Ruby program tests the memory efficiency of Redis and Memcached
+usign a given distribution of values sizes, against 400 MB of used memory.
+
+It was written because of the following thread in the Redis mailing list:
+
+https://groups.google.com/forum/#!topic/redis-db/rmuO_gRWzUs
+
+This software was written by Salvatore Sanfilippo and is released under the
+two clause BSD license. Send pull requests using Github.
